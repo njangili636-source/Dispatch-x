@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="#0d1c22" name="theme-color" />
+    <title>
+        DISPATCH-X | Algorithm Explorer
+    </title>
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="brand-mark" aria-label="Ambulance">🚑</span>
+                <div>
+                    <strong>
+       DISPATCH
+       <span>
+        -X
+       </span>
+      </strong>
+                    <small>
+       ALGORITHM EXPLORER
+      </small>
+                </div>
+            </div>
+            <div class="nav-caption">
+                WORKSPACE
+            </div>
+            <nav>
+                <button class="nav-item active" data-page="overview">
+      <span>
+       ▦
+      </span>
+      Overview
+     </button>
+                <button class="nav-item" data-page="lab">
+      <span>
+       ⌘
+      </span>
+      Algorithm Lab
+     </button>
+                <button class="nav-item" data-page="comparison">
+      <span>
+       ▥
+      </span>
+      Performance Lab
+     </button>
+                <button class="nav-item" data-page="docs">
+      <span>
+       ▤
+      </span>
+      DAA Documentation
+     </button>
+            </nav>
+            <div class="sidebar-bottom">
+                <div class="status">
+                    <span class="pulse">
+      </span> Simulation ready
+                </div>
+                <p>
+                    Academic prototype
+                    <br/> Not for real emergency dispatch
+                </p>
+            </div>
+        </aside>
+        <main class="main">
+            <header class="topbar">
+                <div class="top-left">
+                    <button aria-label="Toggle navigation" class="icon-btn mobile-only" id="menuBtn">
+       ☰
+      </button>
+                    <div>
+                        <span class="eyebrow">
+        DISPATCH CONTROL / SIMULATION
+       </span>
+                        <h1 id="pageTitle">
+                            Command Overview
+                        </h1>
+                    </div>
+                </div>
+                <div class="top-actions">
+                    <span class="live-dot">
+      </span>
+                    <span class="desktop-only">
+       LOCAL SIMULATION
+      </span>
+                    <button aria-label="Toggle light or dark theme" class="icon-btn" id="themeBtn">
+       ◐
+      </button>
+                    <div class="avatar">
+                        DX
+                    </div>
+                </div>
+            </header>
+            <section class="page" id="page-overview">
+                <div class="hero">
+                    <div>
+                        <div class="eyebrow teal">
+                            DESIGN &amp; ANALYSIS OF ALGORITHMS
+                        </div>
+                        <h2>
+                            Every Second
+                            <em>
+         Matters.
+        </em>
+                        </h2>
+                        <p>
+                            Compare four algorithmic strategies for assigning ambulances to incidents with the minimum total estimated response time.
+                        </p>
+                        <div class="hero-chips">
+                            <span>
+         01 / One problem
+        </span>
+                            <span>
+         04 / Algorithms
+        </span>
+                            <span>
+         100% / Reproducible
+        </span>
+                        </div>
+                    </div>
+                    <div class="hero-3d ambulance-art" aria-hidden="true">
+                        <span class="ambulance-shadow"></span>
+                        <img src="assets/ambulance-illustration.png" alt="" class="ambulance-illustration" />
+                        <span class="ambulance-spark spark-one"></span>
+                        <span class="ambulance-spark spark-two"></span>
+                        <span class="ambulance-spark spark-three"></span>
+                    </div>
+                </div>
+                <div class="stats">
+                    <article class="stat card">
+                        <div class="stat-label">
+                            AMBULANCES
+                            <span>
+         ✚
+        </span>
+                        </div>
+                        <strong id="countAmb">
+        3
+       </strong>
+                        <small>
+        Available resources
+       </small>
+                    </article>
+                    <article class="stat card">
+                        <div class="stat-label">
+                            INCIDENTS
+                            <span>
+         ◎
+        </span>
+                        </div>
+                        <strong id="countInc">
+        3
+       </strong>
+                        <small>
+        Requests to allocate
+       </small>
+                    </article>
+                    <article class="stat card">
+                        <div class="stat-label">
+                            OPTIMAL TOTAL
+                            <span>
+         &searrow;
+        </span>
+                        </div>
+                        <strong id="bestCost">
+        &mdash;
+       </strong>
+                        <small id="bestAlgorithm">
+        Awaiting analysis
+       </small>
+                    </article>
+                    <article class="stat card">
+                        <div class="stat-label">
+                            GREEDY CHECK
+                            <span>
+         ◈
+        </span>
+                        </div>
+                        <strong class="green" id="optimalStatus" style="font-size:17px">
+        &mdash;
+       </strong>
+                        <small>
+        Compared with exact optimum
+       </small>
+                    </article>
+                </div>
+                <div class="two-col">
+                    <section class="card panel">
+                        <div class="section-head">
+                            <div>
+                                <span class="eyebrow">
+          01 / INPUT CONFIGURATION
+         </span>
+                                <h3>
+                                    Response Time Matrix
+                                </h3>
+                                <p>
+                                    Enter estimated travel time in minutes. Each row is an ambulance; each column is an incident.
+                                </p>
+                            </div>
+                            <span class="tag">
+         COST MATRIX
+        </span>
+                        </div>
+                        <div class="input-tools">
+                            <label>
+         Size
+         <select id="size">
+          <option>
+           1
+          </option>
+          <option>
+           2
+          </option>
+          <option selected="">
+           3
+          </option>
+          <option>
+           4
+          </option>
+          <option>
+           5
+          </option>
+          <option>
+           6
+          </option>
+          <option>
+           7
+          </option>
+          <option>
+           8
+          </option>
+          <option>
+           9
+          </option>
+          <option>
+           10
+          </option>
+         </select>
+        </label>
+                            <button class="btn secondary" id="randomBtn">
+         &orarr; Randomize
+        </button>
+                        </div>
+                        <div class="matrix-scroll" id="matrix">
+                        </div>
+                        <div class="sample-row">
+                            <span>
+         TRY A SCENARIO
+        </span>
+                            <button data-sample="demo">
+         3&times;3 Demo
+        </button>
+                            <button data-sample="counter">
+         Greedy Failure
+        </button>
+                            <button data-sample="ties">
+         Equal Costs
+        </button>
+                            <button data-sample="medium">
+         5&times;5 Test
+        </button>
+                        </div>
+                        <button class="btn primary full" id="runBtn">
+        ▶ Run All Four Algorithms
+       </button>
+                    </section>
+                    <section class="card panel">
+                        <div class="section-head">
+                            <div>
+                                <span class="eyebrow">
+          02 / LIVE ANALYSIS
+         </span>
+                                <h3>
+                                    Optimization Results
+                                </h3>
+                                <p>
+                                    Compare the total assignment cost from every approach.
+                                </p>
+                            </div>
+                            <span class="tag green-tag">
+         VERIFIED
+        </span>
+                        </div>
+                        <div class="chart-area" id="bars">
+                        </div>
+                        <div class="insight">
+                            <span class="insight-icon">
+         ✦
+        </span>
+                            <div>
+                                <strong>
+          What are we minimizing?
+         </strong>
+                                <p>
+                                    The sum of response times, with exactly one incident assigned to each ambulance. This is a static educational model.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="tiny-meta">
+                            <span id="runStamp">
+         Not yet run
+        </span>
+                            <span>
+         Fastest:
+         <strong id="fastest">
+          &mdash;
+         </strong>
+         &middot; Exact algorithms cross-checked
+        </span>
+                        </div>
+                    </section>
+                </div>
+                <div class="card panel wide">
+                    <div class="section-head">
+                        <div>
+                            <span class="eyebrow">
+         03 / COMPARISON
+        </span>
+                            <h3>
+                                Algorithm Performance Snapshot
+                            </h3>
+                        </div>
+                        <button class="btn secondary" id="exportBtn">
+        &darr; Export CSV
+       </button>
+                    </div>
+                    <div class="table-scroll">
+                        <table class="results-table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        ALGORITHM
+                                    </th>
+                                    <th>
+                                        TOTAL COST
+                                    </th>
+                                    <th>
+                                        RUNTIME*
+                                    </th>
+                                    <th>
+                                        NODES / TRANSITIONS
+                                    </th>
+                                    <th>
+                                        PRUNED
+                                    </th>
+                                    <th>
+                                        RESULT
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="resultRows">
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="footnote">
+                        * Runtime is a single browser measurement and is not a reliable benchmark. For performance studies, repeat runs and report median time.
+                    </p>
+                </div>
+            </section>
+            <section class="page" hidden="" id="page-lab">
+                <div class="page-intro">
+                    <span class="eyebrow teal">
+       INTERACTIVE ALGORITHM STUDY
+      </span>
+                    <h2>
+                        Explore the Decision Logic
+                    </h2>
+                    <p>
+                        Each approach uses the same response-time matrix and the same assignment constraints.
+                    </p>
+                </div>
+                <div class="tabs">
+                    <button class="active" data-algo="0">
+       Brute Force
+      </button>
+                    <button data-algo="1">
+       Greedy
+      </button>
+                    <button data-algo="2">
+       Bitmask DP
+      </button>
+                    <button data-algo="3">
+       Branch &amp; Bound
+      </button>
+                </div>
+                <div class="two-col">
+                    <div class="card panel">
+                        <div class="section-head">
+                            <div>
+                                <span class="eyebrow" id="algoType">
+          EXHAUSTIVE SEARCH
+         </span>
+                                <h3 id="algoTitle">
+                                    Brute Force
+                                </h3>
+                            </div>
+                            <span class="tag" id="algoGuarantee">
+         Optimal
+        </span>
+                        </div>
+                        <p id="algoDesc">
+                        </p>
+                        <div class="complexity">
+                            <div>
+                                <small>
+          TIME COMPLEXITY
+         </small>
+                                <strong id="algoTime">
+         </strong>
+                            </div>
+                            <div>
+                                <small>
+          AUXILIARY SPACE
+         </small>
+                                <strong id="algoSpace">
+         </strong>
+                            </div>
+                        </div>
+                        <h4>
+                            Algorithm pseudocode
+                        </h4>
+                        <pre id="pseudocode"></pre>
+                    </div>
+                    <div class="card panel">
+                        <div class="section-head">
+                            <div>
+                                <span class="eyebrow">
+          RESULT / SELECTED ALGORITHM
+         </span>
+                                <h3 id="algoResult">
+                                    &mdash;
+                                </h3>
+                            </div>
+                        </div>
+                        <h4>
+                            Ambulance &rarr; Incident
+                        </h4>
+                        <div id="assignment">
+                        </div>
+                        <h4>
+                            Step-by-step execution trace
+                        </h4>
+                        <div class="trace" id="trace">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="page" hidden="" id="page-comparison">
+                <div class="page-intro">
+                    <span class="eyebrow teal">
+       PERFORMANCE LAB
+      </span>
+                    <h2>
+                        Compare. Measure. Explain.
+                    </h2>
+                    <p>
+                        Use the Overview matrix to change the input. All algorithms are executed on the identical dataset.
+                    </p>
+                </div>
+                <div class="card panel">
+                    <h3>
+                        What to look for
+                    </h3>
+                    <div class="guide-grid">
+                        <div>
+                            <strong>
+         Solution quality
+        </strong>
+                            <p>
+                                Brute Force, DP and Branch and Bound must agree on minimum cost. Greedy may differ.
+                            </p>
+                        </div>
+                        <div>
+                            <strong>
+         Runtime
+        </strong>
+                            <p>
+                                Browser timings depend on hardware, JIT optimization and input size. Repeat experiments for a fair comparison.
+                            </p>
+                        </div>
+                        <div>
+                            <strong>
+         Search effort
+        </strong>
+                            <p>
+                                Compare complete permutations, DP transitions and pruned search-tree nodes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card panel">
+                    <h3>
+                        Complexity reference
+                    </h3>
+                    <div class="table-scroll">
+                        <table class="results-table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        APPROACH
+                                    </th>
+                                    <th>
+                                        TIME
+                                    </th>
+                                    <th>
+                                        SPACE
+                                    </th>
+                                    <th>
+                                        OPTIMAL?
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Brute Force
+                                    </td>
+                                    <td>
+                                        O(n &middot; n!)
+                                    </td>
+                                    <td>
+                                        O(n)
+                                    </td>
+                                    <td>
+                                        Yes
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Greedy
+                                    </td>
+                                    <td>
+                                        O(n&sup2;)
+                                    </td>
+                                    <td>
+                                        O(n)
+                                    </td>
+                                    <td>
+                                        No
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Bitmask DP
+                                    </td>
+                                    <td>
+                                        O(n &middot; 2ⁿ)
+                                    </td>
+                                    <td>
+                                        O(2ⁿ)
+                                    </td>
+                                    <td>
+                                        Yes
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Branch &amp; Bound
+                                    </td>
+                                    <td>
+                                        O(n&sup2; &middot; n!) conservative
+                                    </td>
+                                    <td>
+                                        O(n&sup2;)
+                                    </td>
+                                    <td>
+                                        Yes
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="footnote">
+                        Complexities describe these specific implementations. The Branch and Bound upper bound includes repeated lower-bound calculations; its O(n²) auxiliary space accounts for per-level temporary lists. Greedy tie-breaking is deterministic by incident index.
+                    </p>
+                </div>
+            </section>
+            <section class="page" hidden="" id="page-docs">
+                <div class="page-intro">
+                    <span class="eyebrow teal">
+       MATHEMATICAL FOUNDATIONS
+      </span>
+                    <h2>
+                        Understand the Algorithms
+                    </h2>
+                    <p>
+                        Mathematical formulation, correctness, complexity and limitations.
+                    </p>
+                </div>
+                <div class="card panel">
+                    <h3>
+                        Problem formulation
+                    </h3>
+                    <p>
+                        Let C[i][j] be the estimated time for ambulance i to reach incident j. Define binary x[i][j] = 1 when ambulance i serves incident j.
+                    </p>
+                    <div class="formula">
+                        Minimize &Sigma;ᵢ &Sigma;ⱼ C[i][j] &middot; x[i][j]
+                    </div>
+                    <p>
+                        Subject to &Sigma;ⱼ x[i][j] = 1 for every ambulance i; &Sigma;ᵢ x[i][j] = 1 for every incident j; and x[i][j] &isin; {0, 1}.
+                    </p>
+                </div>
+                <div class="docs-grid">
+                    <div class="card panel">
+                        <h3>
+                            Why Greedy can fail
+                        </h3>
+                        <p>
+                            With matrix [[1, 2], [2, 100]], row-order Greedy chooses 1 + 100 = 101. The cross assignment costs 2 + 2 = 4. A local minimum is not necessarily a global minimum.
+                        </p>
+                    </div>
+                    <div class="card panel">
+                        <h3>
+                            Why DP is exact
+                        </h3>
+                        <p>
+                            A mask uniquely identifies assigned incidents. For the next ambulance, every unused incident is considered. Only the cheapest cost to each mask must be retained, because future choices depend only on that mask.
+                        </p>
+                    </div>
+                    <div class="card panel">
+                        <h3>
+                            Why B&amp;B is exact
+                        </h3>
+                        <p>
+                            For each remaining ambulance, take its cheapest currently available incident as an optimistic estimate. This sum may reuse an incident, so it never exceeds the true remaining assignment cost. Pruning against an incumbent cannot discard a better solution.
+                        </p>
+                    </div>
+                    <div class="card panel">
+                        <h3>
+                            Scope and limitations
+                        </h3>
+                        <p>
+                            This is a static, one-to-one minimum-sum assignment simulator. It does not model clinical urgency, ambulance qualifications, traffic changes or maximum individual response time. It is not suitable for real dispatch decisions.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <footer>
+                DISPATCH-X &middot; DAA ALGORITHM EXPLORER
+                <span>
+      Educational simulation only &middot; No live emergency data
+     </span>
+            </footer>
+        </main>
+    </div>
+    <div aria-live="polite" class="toast" id="toast" role="status">
+    </div>
+    <script src="js/app.js" type="module">
+    </script>
+</body>
+
+</html>
